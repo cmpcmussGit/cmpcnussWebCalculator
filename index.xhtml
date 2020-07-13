@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Web Calculator</title>
+        <link href="resources/Style.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h2>Welcome to CMPCMUSS Web Calculator</h2>
+
+        <f:view>
+            <p>
+                To execute calculations, use the form to perform complex calculations based on the drop-down list displaying various type of operations. Select an operation type to perform calculation and enter values by typing numbers in the input fields below, then hit the "Calculate" button to see the result. 
+                <br/>
+                Be aware that more than one operation type require more than one value. For example, the addition operation requires two values to be calculated. Therefore, if you perform two operations you must add another value. Meaning that you must enter three values each one in its correspondent input field. Afterward, the application will execute the operations in order of its operation type displayed in the drop-down list. Just in case one wants confirm the resulted value.
+                <h:messages errorStyle="color: red" infoStyle="color: green" globalOnly="true"/>
+                <br/>
+                <h:form id="calculationForm">
+                                <h2>Perform Calculation</h2>
+                    Number 1:
+                    <h:inputText id="a" value="#{calculatorController.a}" />
+                    <br/>
+                    <br/> 
+                    Number 2: 
+                    <h:inputText id="b" value="#{calculatorController.b}" />
+                    <br/>
+                    <br/>
+                    Number 3: 
+                    <h:inputText id="c" value="#{calculatorController.c}" />
+                    <br/>
+                    <br/>  
+                    Number 4: 
+                    <h:inputText id="d" value="#{calculatorController.d}" />
+                    <br/>
+                    <br/> 
+                    Number 5: 
+                    <h:inputText id="e" value="#{calculatorController.e}" />
+                    <br/>
+                    <br/>                                    
+                    Calculation Type:
+                    <h:selectOneMenu id="calculationType" value="#{calculatorController.calculationType}">
+                        <f:selectItems value="#{calculatorController.calculationList}"/>
+                    </h:selectOneMenu>
+                    <br/>
+                    <br/>
+                    Result:
+                    <h:outputText id="result" value="#{calculatorController.result}"/>
+                    <br/>
+                    <br/>
+                    <h:commandButton action="#{calculatorController.performCalculation()}" value="Calculate"/>
+
+                </h:form>
+            </p>
+        </f:view>
+    </h:body>
+</html>
+
